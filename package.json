@@ -4,13 +4,13 @@
   "description": "react webpack",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "BUILD_DEV=1 webpack-dev-server --hot --inline",
+    "build":"BUILD_PRERLEASE=1 webpack "
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/huzhijuan77/practice-scaffold.git",
-    "dev": "BUILD_DEV=1 webpack-dev-server --hot --inline",
-    "build":"BUILD_PRERLEASE=1 webpack "
+    "url": "git+https://github.com/huzhijuan77/practice-scaffold.git"
   },
   "author": "",
   "license": "ISC",
