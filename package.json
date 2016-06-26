@@ -1,0 +1,19 @@
+{
+  "name": "practice-scaffold",
+  "version": "1.0.0",
+  "description": "react webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huzhijuan77/practice-scaffold.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huzhijuan77/practice-scaffold/issues"
+  },
+  "homepage": "https://github.com/huzhijuan77/practice-scaffold#readme"
+}
