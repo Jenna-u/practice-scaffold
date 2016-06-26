@@ -8,10 +8,33 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/huzhijuan77/practice-scaffold.git"
+    "url": "git+https://github.com/huzhijuan77/practice-scaffold.git",
+    "dev": "BUILD_DEV=1 webpack-dev-server --hot --inline",
+    "build":"BUILD_PRERLEASE=1 webpack "
   },
   "author": "",
   "license": "ISC",
+
+  "devDependencies": {
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.21.0",
+    "node-sass": "^3.8.0",
+    "react": "^15.1.0",
+    "react-hot-loader": "^1.3.0",
+    "redux": "^3.5.2",
+    "sass-loader": "^3.2.1",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-notifier": "^1.3.0"
+  },
+
   "bugs": {
     "url": "https://github.com/huzhijuan77/practice-scaffold/issues"
   },
