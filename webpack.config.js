@@ -6,16 +6,9 @@ var WebpackNotifierPlugin = require('webpack-notifier');  //webpack通知
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH,'src/scripts/app.js');
 var DEV_PATH = path.resolve(ROOT_PATH,'public');
+var env = process.env.NODE_ENV;
 
-
-//开发环境与发布环境配置
-var definePlugin = new webpack.DefinePlugin({
-  __DEV__:JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'false')),
-  __PRERELEASE__:JSON.stringify(JSON.parse(process.env.BUILD_PRERELEASE || 'true'))
-});
-
-
-module.exports = {
+var Model = {
   entry:[
     'webpack-dev-server/client?http://localhost:8033',
     'webpack/hot/only-dev-server',
@@ -26,8 +19,6 @@ module.exports = {
     path: DEV_PATH,
     filename: 'app[hash].js'
   },
-
-  //devtool: '#source-map',
 
   devServer: {
     hot:true,
@@ -40,7 +31,6 @@ module.exports = {
   module:{
     loaders: [
       {
-        //css-moduless
         test: /\.scss$/,
         loader: 'style!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass'
       },
@@ -77,8 +67,14 @@ module.exports = {
   },
 
   plugins: [
+    new HtmlwebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new WebpackNotifierPlugin({title: 'Webpack', alwaysNotify: true}),
-    process.env['NODE_ENV'] === 'production' ? new webpack.optimize.UglifyJsPlugin({compress:false}) : []
+    new WebpackNotifierPlugin({title: 'Webpack', alwaysNotify: true})
   ]
 };
+
+if(env === 'production') {
+  Model.plugins.push(new webpack.optimize.UglifyJsPlugin({compress:{warnings: false}}));
+}
+
+module.exports = Model;
