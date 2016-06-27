@@ -7,6 +7,7 @@ var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH,'src/scripts/app.js');
 var DEV_PATH = path.resolve(ROOT_PATH,'public');
 
+
 //开发环境与发布环境配置
 var definePlugin = new webpack.DefinePlugin({
   __DEV__:JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'false')),
@@ -26,7 +27,7 @@ module.exports = {
     filename: 'app[hash].js'
   },
 
-  devtool: '#source-map',
+  //devtool: '#source-map',
 
   devServer: {
     hot:true,
@@ -76,12 +77,8 @@ module.exports = {
   },
 
   plugins: [
-    definePlugin,
-    new HtmlwebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new WebpackNotifierPlugin({
-      title: 'Webpack',
-      alwaysNotify: true
-    })
+    new WebpackNotifierPlugin({title: 'Webpack', alwaysNotify: true}),
+    process.env['NODE_ENV'] === 'production' ? new webpack.optimize.UglifyJsPlugin({compress:false}) : []
   ]
 };
