@@ -1,6 +1,6 @@
-import styles from './main.scss';
-
-var app  = document.createElement('div');
-
-app.innerHTML = '<h1 class="'+ styles.title +'">first init</h1>';
-document.body.appendChild(app);
+import React from 'react';
+import ReactDOM from 'react-dom'
+import App from './containers/Index';
+var ele = document.createElement('section');
+document.body.appendChild(ele);
+ReactDOM.render(<App />,ele);
