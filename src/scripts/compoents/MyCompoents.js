@@ -7,9 +7,9 @@ export default class MyCompoents extends React.Component{
   render (){
     return (
       <div className='container'>
-        <h1>在线练习发的防守打法</h1>
-        <h2>发发啊发发发</h2>
-        <h3>fafdsfd</h3>
+        <h1>在线练习发守打法</h1>
+        <h2>发发发东方时空更好看富士康发数据库</h2>
+        <h3>fsfsfdsf</h3>
       </div>
     )
   }

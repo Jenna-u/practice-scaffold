@@ -41,6 +41,9 @@
   "homepage": "https://github.com/huzhijuan77/practice-scaffold#readme",
   "dependencies": {
     "cross-env": "^1.0.8",
-    "rimraf": "^2.5.2"
+    "express": "^4.14.0",
+    "rimraf": "^2.5.2",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.11.0"
   }
 }

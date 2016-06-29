@@ -10,8 +10,7 @@ var env = process.env.NODE_ENV;
 
 var Model = {
   entry:[
-    'webpack-dev-server/client?http://localhost:8033',
-    'webpack/hot/only-dev-server',
+    'webpack-hot-middleware/client',
     APP_PATH
   ],
 
@@ -21,9 +20,6 @@ var Model = {
   },
 
   devServer: {
-    // hot:true,
-    // inline:true,
-    port: 8033,
     progress:true,
     historyApiFallback: true
   },
@@ -69,7 +65,7 @@ var Model = {
 
   plugins: [
     new HtmlwebpackPlugin(),
-    // new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     new WebpackNotifierPlugin({title: 'Webpack', alwaysNotify: true})
   ]
 };
