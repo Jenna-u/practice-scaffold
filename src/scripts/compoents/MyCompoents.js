@@ -10,6 +10,7 @@ export default class MyCompoents extends React.Component{
         <h1>在线练习发守打法</h1>
         <h2>发发发东方时空更好看富士康发数据库</h2>
         <h3>fsfsfdsf</h3>
+        <s>并不重要</s>
       </div>
     )
   }

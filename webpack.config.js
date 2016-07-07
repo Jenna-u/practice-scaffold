@@ -2,11 +2,14 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
 var WebpackNotifierPlugin = require('webpack-notifier');  //webpack通知
+var config = require('./src/common/config');
 
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH,'src/scripts/app.js');
 var DEV_PATH = path.resolve(ROOT_PATH,'public');
-var env = process.env.NODE_ENV;
+// var env = process.env.NODE_ENV;
+
+var env = config.env;
 
 var Model = {
   entry:[
@@ -64,13 +67,18 @@ var Model = {
   },
 
   plugins: [
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("production")
+      }
+    }),
     new HtmlwebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new WebpackNotifierPlugin({title: 'Webpack', alwaysNotify: true})
   ]
 };
 
-if(env === 'production') {
+if (env === 'production') {
   Model.plugins.push(new webpack.optimize.UglifyJsPlugin({compress:{warnings: false}}));
 }
 

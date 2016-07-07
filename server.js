@@ -8,13 +8,20 @@ var webpackConfig = require('./webpack.config');
 var webpackMiddleware = require('webpack-dev-middleware');
 var webpackHotMiddleware = require('webpack-hot-middleware');
 var app = express();
+var env = process.argv[2];
 
-var complier = webpack(webpackConfig);
-
-app.use(webpackMiddleware(complier));
-app.use(webpackHotMiddleware(complier));
+if(env === 'dev'){
+  var complier = webpack(webpackConfig);
+  app.use(webpackMiddleware(complier));
+  app.use(webpackHotMiddleware(complier));
+}
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('*', function response (req,res) {
+  res.sendFile(path.join(__dirname, 'public/index.html'))
+});
+
 app.listen(config.port, function(){
   console.log('server start at port: ' + config.port);
 });
